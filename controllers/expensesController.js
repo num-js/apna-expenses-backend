@@ -35,7 +35,7 @@ const addExpense = async (req, res) => {
     const newExpenseData = new expensesModel(req.body);
     try {
         await newExpenseData.save();
-        res.status(200).json({
+        res.status(201).json({
             message: 'New Expense added successfully',
             data: newExpenseData
         });

@@ -8,7 +8,7 @@ const expensesSchema = mongoose.Schema({
     price: {
         type: Number
     },
-    is_deleted: {
+    is_archived: {
         type: Boolean,
         default: false,
     },
@@ -24,4 +24,4 @@ const expensesSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('users', expensesSchema);
+module.exports = mongoose.model('expenses', expensesSchema);

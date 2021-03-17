@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // app.use(cors());
 
 //Routes
-app.use('/users', require('./routes/routes'));
+app.use('/expenses', require('./routes/routes'));
 
 
 app.get('/', (req, res) => {

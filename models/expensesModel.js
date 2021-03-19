@@ -18,6 +18,10 @@ const expensesSchema = mongoose.Schema({
     pic: {
         type: String
     },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     creating_date: {
         type: Date,
         default: Date.now

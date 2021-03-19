@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/get-expenses",
+					"raw": "http://localhost:5000/expenses/get-expenses",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"users",
+						"expenses",
 						"get-expenses"
 					]
 				}
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"name\": \"Num\"\r\n}",
+					"raw": "{\r\n\t\"name\": \"Mobile\",\r\n\t\"price\": 12000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,14 +40,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/users/add-expense",
+					"raw": "http://localhost:5000/expenses/add-expense",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"users",
+						"expenses",
 						"add-expense"
 					]
 				}
@@ -60,14 +60,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/get-specific-expense/6050b817f6150122102e1bea",
+					"raw": "http://localhost:5000/expenses/get-specific-expense/6050b817f6150122102e1bea",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"users",
+						"expenses",
 						"get-specific-expense",
 						"6050b817f6150122102e1bea"
 					]
@@ -81,14 +81,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/users/delete-expense/6050b817f6150122102e1be1",
+					"raw": "http://localhost:5000/expenses/delete-expense/6050b817f6150122102e1be1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"users",
+						"expenses",
 						"delete-expense",
 						"6050b817f6150122102e1be1"
 					]
@@ -111,14 +111,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/users/update-expense/6050b7c7f6150122102e1be9",
+					"raw": "http://localhost:5000/expenses/update-expense/6050b7c7f6150122102e1be9",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"users",
+						"expenses",
 						"update-expense",
 						"6050b7c7f6150122102e1be9"
 					]

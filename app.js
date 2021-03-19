@@ -8,7 +8,7 @@ const app = express();
 
 //Middlewares
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 
 //Routes
 app.use('/expenses', require('./routes/routes'));
@@ -34,5 +34,5 @@ mongoose.connect(process.env.DB_URI, {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`App sterted at: http://localhost:5000/`);
+    console.log(`App sterted at: http://localhost:${PORT}/`);
 });

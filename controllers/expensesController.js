@@ -8,17 +8,14 @@ const expensesModel = require('../models/expensesModel');
  */
 const getExpenses = async (req, res) => {
     try {
-        const data = await expensesModel.find();
-        if (data.length > 0) {
-            res.status(200).json({
-                message: 'Expenses Data Fetched',
-                data: data
-            });
-        } else {
-            res.status(404).json({
-                message: 'No Expenses Data'
-            });
-        }
+        const data = await expensesModel.find({
+            expenseBy: req.user
+        });
+
+        res.status(200).json({
+            message: 'Expenses Data Fetched',
+            data
+        });
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
@@ -32,12 +29,14 @@ const getExpenses = async (req, res) => {
  * 
  */
 const addExpense = async (req, res) => {
+    req.body.expenseBy = req.user
     const newExpenseData = new expensesModel(req.body);
+
     try {
         await newExpenseData.save();
         res.status(201).json({
             message: 'New Expense added successfully',
-            data: newExpenseData
+            data: newExpenseData,
         });
     } catch (err) {
         res.status(400).json({ message: err.message })

@@ -15,7 +15,7 @@ app.use('/api', require('./routes/routes'));
 
 
 app.get('/', (req, res) => {
-    res.send('<div align="center"><h1>Welcome! <br /> Apna Expenses</h1></div>');
+    res.send('<div align="center"><h1>Welcome!</h1> <br /> <h3>Manage your Expenses with </h3> <h1><u>Apna Expenses</u></h1></div>');
 });
 
 

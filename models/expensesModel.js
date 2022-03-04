@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema.Types;
 
 const expensesSchema = mongoose.Schema({
     name: {
@@ -8,15 +9,15 @@ const expensesSchema = mongoose.Schema({
     price: {
         type: Number
     },
-    is_archived: {
-        type: Boolean,
-        default: false,
-    },
     description: {
         type: String
     },
     pic: {
         type: String
+    },
+    expenseBy: {
+        type: ObjectId,
+        ref: "User"
     },
     date: {
         type: Date,
@@ -25,7 +26,11 @@ const expensesSchema = mongoose.Schema({
     creating_date: {
         type: Date,
         default: Date.now
-    }
+    },
+    is_archived: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 module.exports = mongoose.model('expenses', expensesSchema);

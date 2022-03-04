@@ -1,19 +1,21 @@
 const express = require('express');
-const { signupUser, signinUser } = require('../controllers/authController');
+const { getTransactionData, addTransaction, getSpecificTransactionData, deleteTransaction, updateTransaction } = require('../controllers/accountController');
 const { getExpenses, addExpense, getSpecificExpense, deleteExpense, updateExpense } = require('../controllers/expensesController');
 const { authMiddleware } = require('../middlewares/authMiddleware');
 const router = express.Router();
 
-// Auth Routers
-router.post('/signup', signupUser);
-router.post('/signin', signinUser);
+// Expenses
+router.get('/get-expenses', getExpenses);
+router.post('/add-expense', addExpense);
+router.get('/get-specific-expense/:expense_id', getSpecificExpense);
+router.delete('/delete-expense/:expense_id', deleteExpense);
+router.put('/update-expense/:expense_id', updateExpense);
 
-// Expenses Routers
-router.get('/get-expenses', authMiddleware, getExpenses);
-router.post('/add-expense', authMiddleware, addExpense);
-router.get('/get-specific-expense/:expense_id', authMiddleware, getSpecificExpense);
-router.delete('/delete-expense/:expense_id', authMiddleware, deleteExpense);
-router.put('/update-expense/:expense_id', authMiddleware, updateExpense);
-
+// Account/Money (Transactions)
+router.get('/get-transactions', getTransactionData);
+router.post('/add-transaction', addTransaction);
+router.get('/get-specific-transaction/:transaction_id', getSpecificTransactionData);
+router.delete('/delete-transaction/:transaction_id', deleteTransaction);
+router.put('/update-transaction/:transaction_id', updateTransaction);
 
 module.exports = router;

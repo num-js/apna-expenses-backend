@@ -1,3 +1,4 @@
+const accountModel = require('../models/accountModel');
 const expensesModel = require('../models/expensesModel');
 
 /**
@@ -12,9 +13,16 @@ const getExpenses = async (req, res) => {
             user: req.user
         });
 
+        //Replace this Jugar with Better Code
+        const accountData = await accountModel.find({
+            user: req.user,
+        });
+        const totalAmount = accountData.reduce((acc, data) => acc.amount + data.amount);
+
         res.status(200).json({
             message: 'Expenses Data Fetched',
-            data
+            data,
+            totalAmount
         });
     } catch (err) {
         res.status(400).json({ message: err.message })

@@ -1,5 +1,6 @@
 const express = require('express');
 const { getTransactionData, addTransaction, getSpecificTransactionData, deleteTransaction, updateTransaction } = require('../controllers/accountController');
+const { signupUser, signinUser } = require('../controllers/authController');
 const { getExpenses, addExpense, getSpecificExpense, deleteExpense, updateExpense } = require('../controllers/expensesController');
 const { authMiddleware } = require('../middlewares/authMiddleware');
 const router = express.Router();

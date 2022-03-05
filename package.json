@@ -13,7 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "nodemon": "nodemon"
   },
   "repository": {
     "type": "git",

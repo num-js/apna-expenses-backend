@@ -8,7 +8,9 @@ const accountModel = require('../models/accountModel');
  */
 const getTransactionData = async (req, res) => {
     try {
-        const data = await accountModel.find();
+        const data = await accountModel.find({
+            user: req.user
+        });
         if (data.length > 0) {
             res.status(200).json({
                 message: 'Account Data Fetched',
@@ -32,6 +34,7 @@ const getTransactionData = async (req, res) => {
  * 
  */
 const addTransaction = async (req, res) => {
+    req.body.user = req.user;
     const newExpenseData = new accountModel(req.body);
     try {
         await newExpenseData.save();

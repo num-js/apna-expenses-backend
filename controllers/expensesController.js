@@ -17,11 +17,15 @@ const getExpenses = async (req, res) => {
         const accountData = await accountModel.find({
             user: req.user,
         });
-        const totalAmount = accountData.reduce((acc, data) => acc.amount + data.amount);
+        let totalAmount = 0;
+        accountData.forEach(data => {
+            totalAmount += data.amount
+        });
 
         res.status(200).json({
             message: 'Expenses Data Fetched',
             data,
+            accountData,
             totalAmount
         });
     } catch (err) {

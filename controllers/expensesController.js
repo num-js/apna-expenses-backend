@@ -9,7 +9,7 @@ const expensesModel = require('../models/expensesModel');
 const getExpenses = async (req, res) => {
     try {
         const data = await expensesModel.find({
-            expenseBy: req.user
+            user: req.user
         });
 
         res.status(200).json({
@@ -29,7 +29,7 @@ const getExpenses = async (req, res) => {
  * 
  */
 const addExpense = async (req, res) => {
-    req.body.expenseBy = req.user
+    req.body.user = req.user;
     const newExpenseData = new expensesModel(req.body);
 
     try {

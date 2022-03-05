@@ -9,13 +9,13 @@ const expensesSchema = mongoose.Schema({
     price: {
         type: Number
     },
-    description: {
+    message: {
         type: String
     },
     pic: {
         type: String
     },
-    expenseBy: {
+    user: {
         type: ObjectId,
         ref: "User"
     },

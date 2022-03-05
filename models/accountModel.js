@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema.Types;
 
 const accountSchema = mongoose.Schema({
     title: {
@@ -8,15 +9,15 @@ const accountSchema = mongoose.Schema({
     amount: {
         type: Number
     },
-    is_archived: {
-        type: Boolean,
-        default: false,
-    },
-    description: {
+    message: {
         type: String
     },
     pic: {
         type: String
+    },
+    user: {
+        type: ObjectId,
+        ref: "User"
     },
     date: {
         type: Date,
@@ -25,7 +26,11 @@ const accountSchema = mongoose.Schema({
     creating_date: {
         type: Date,
         default: Date.now
-    }
+    },
+    is_archived: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 module.exports = mongoose.model('account', accountSchema);

@@ -12,6 +12,10 @@ const khataTransactionModel = mongoose.Schema({
     message: {
         type: String
     },
+    transactionType: {
+        type: String,
+        default: "receive"
+    },
     pic: {
         type: String
     },

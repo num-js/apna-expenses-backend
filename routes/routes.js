@@ -4,6 +4,7 @@ const { getAllKhatas, addKhata, getSpecificKhata, deleteKhata, updateKhata } = r
 const { signupUser, signinUser } = require('../controllers/authController');
 const { getExpenses, addExpense, getSpecificExpense, deleteExpense, updateExpense } = require('../controllers/expensesController');
 const { authMiddleware } = require('../middlewares/authMiddleware');
+const { getKhataTransactions, addKhataTransaction, getSpecificKhataTransaction, deleteKhataTransaction, updateKhataTransaction } = require('../controllers/khataTransactionController');
 const router = express.Router();
 
 // Auth Routers
@@ -30,5 +31,12 @@ router.post('/add-khata', authMiddleware, addKhata);
 router.get('/get-specific-khata-transaction/:transaction_id', authMiddleware, getSpecificKhata);
 router.delete('/delete-khata-transaction/:transaction_id', authMiddleware, deleteKhata);
 router.put('/update-khata-transaction/:transaction_id', authMiddleware, updateKhata);
+
+// Khata Transactions
+router.get('/get-khata-transactions', authMiddleware, getKhataTransactions);
+router.post('/add-khata-transaction', authMiddleware, addKhataTransaction);
+router.get('/get-specific-khata-transaction/:transaction_id', authMiddleware, getSpecificKhataTransaction);
+router.delete('/delete-khata-transaction/:transaction_id', authMiddleware, deleteKhataTransaction);
+router.put('/update-khata-transaction/:transaction_id', authMiddleware, updateKhataTransaction);
 
 module.exports = router;

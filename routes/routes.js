@@ -1,5 +1,6 @@
 const express = require('express');
 const { getTransactionData, addTransaction, getSpecificTransactionData, deleteTransaction, updateTransaction } = require('../controllers/accountController');
+const { getAllKhatas, addKhata, getSpecificKhata, deleteKhata, updateKhata } = require('../controllers/khataController');
 const { signupUser, signinUser } = require('../controllers/authController');
 const { getExpenses, addExpense, getSpecificExpense, deleteExpense, updateExpense } = require('../controllers/expensesController');
 const { authMiddleware } = require('../middlewares/authMiddleware');
@@ -22,5 +23,12 @@ router.post('/add-transaction', authMiddleware, addTransaction);
 router.get('/get-specific-transaction/:transaction_id', authMiddleware, getSpecificTransactionData);
 router.delete('/delete-transaction/:transaction_id', authMiddleware, deleteTransaction);
 router.put('/update-transaction/:transaction_id', authMiddleware, updateTransaction);
+
+// Khata
+router.get('/get-all-khatas', authMiddleware, getAllKhatas);
+router.post('/add-khata', authMiddleware, addKhata);
+router.get('/get-specific-khata-transaction/:transaction_id', authMiddleware, getSpecificKhata);
+router.delete('/delete-khata-transaction/:transaction_id', authMiddleware, deleteKhata);
+router.put('/update-khata-transaction/:transaction_id', authMiddleware, updateKhata);
 
 module.exports = router;

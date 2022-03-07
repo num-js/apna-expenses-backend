@@ -30,4 +30,4 @@ const khataSchema = mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('khata', khataSchema);
+module.exports = mongoose.model('Khata', khataSchema);

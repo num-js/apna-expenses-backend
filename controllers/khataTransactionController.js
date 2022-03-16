@@ -12,16 +12,16 @@ const getKhataTransactions = async (req, res) => {
             user: req.user,
             khata: req.params.khata_id
         });
-        if (data.length > 0) {
-            res.status(200).json({
-                message: 'Khata Transactions Data Fetched',
-                data: data
-            });
-        } else {
-            res.status(404).json({
-                message: 'No Khata Transactions Data'
-            });
-        }
+        // if (data.length > 0) {
+        res.status(200).json({
+            message: 'Khata Transactions Data Fetched',
+            data: data
+        });
+        // } else {
+        //     res.status(404).json({
+        //         message: 'No Khata Transactions Data'
+        //     });
+        // }
     } catch (err) {
         res.status(400).json({ message: err.message })
     }

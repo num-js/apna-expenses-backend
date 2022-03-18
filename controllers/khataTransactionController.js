@@ -36,12 +36,12 @@ const getKhataTransactions = async (req, res) => {
  */
 const addKhataTransaction = async (req, res) => {
     req.body.user = req.user;
-    const newExpenseData = new khataTransactionModel(req.body);
+    const newKhataData = new khataTransactionModel(req.body);
     try {
-        await newExpenseData.save();
+        await newKhataData.save();
         res.status(201).json({
-            message: 'New Expense added successfully',
-            data: newExpenseData
+            message: 'New Khata added successfully',
+            data: newKhataData
         });
     } catch (err) {
         res.status(400).json({ message: err.message })
@@ -49,22 +49,22 @@ const addKhataTransaction = async (req, res) => {
 }
 
 /**
- * callback function - Get a Specific Expense's Data
+ * callback function - Get a Specific Khata's Data
  * @param {object} req 
  * @param {object} res 
  * 
  */
 const getSpecificKhataTransaction = async (req, res) => {
     try {
-        const specificExpense = await khataTransactionModel.findById(req.params.transaction_id);
-        if (specificExpense !== null) {
+        const specificTransaction = await khataTransactionModel.findById(req.params.transaction_id);
+        if (specificTransaction !== null) {
             res.status(200).json({
-                message: 'Fetched specific Expense data',
-                data: specificExpense
+                message: 'Fetched specific Transaction data',
+                data: specificTransaction
             });
         } else {
             res.status(404).json({
-                message: 'Expense not found'
+                message: 'Transaction not found'
             });
         }
     } catch (err) {
@@ -73,22 +73,22 @@ const getSpecificKhataTransaction = async (req, res) => {
 }
 
 /**
- * callback function - Delete a Specific Expense's data
+ * callback function - Delete a Specific Khata's Transaction data
  * @param {object} req 
  * @param {object} res 
  * 
  */
 const deleteKhataTransaction = async (req, res) => {
     try {
-        const deletedExpense = await khataTransactionModel.findByIdAndDelete({ _id: req.params.transaction_id });
-        if (deletedExpense) {
+        const deletedTransaction = await khataTransactionModel.findByIdAndDelete({ _id: req.params.transaction_id });
+        if (deletedTransaction) {
             res.status(200).json({
-                message: "Expense's data deleted",
-                data: deletedExpense
+                message: "Transaction's data deleted",
+                data: deletedTransaction
             });
         } else {
             res.status(404).json({
-                message: "Expense not Found"
+                message: "Transaction not Found"
             });
         }
     } catch (err) {
@@ -97,24 +97,24 @@ const deleteKhataTransaction = async (req, res) => {
 }
 
 /**
- * callback function - Update a Specific Expense's data
+ * callback function - Update a Specific Transaction's data
  * @param {object} req 
  * @param {object} res 
  * 
  */
 const updateKhataTransaction = async (req, res) => {
     const { transaction_id: _id } = req.params; //Extracting transaction_id & giving a name _id at the same time
-    const updateExpenseData = req.body;
+    const updateTransactionData = req.body;
     try {
-        const updatedExpense = await khataTransactionModel.findByIdAndUpdate(_id, updateExpenseData, { new: true });
-        if (updatedExpense !== null) {
+        const updatedTransaction = await khataTransactionModel.findByIdAndUpdate(_id, updateTransactionData, { new: true });
+        if (updatedTransaction !== null) {
             res.status(200).json({
-                message: "Expense's data Updated",
-                data: updatedExpense
+                message: "Transaction's data Updated",
+                data: updatedTransaction
             });
         } else {
             res.status(404).json({
-                message: 'Expense not Found'
+                message: 'Transaction not Found'
             });
         }
     } catch (err) {

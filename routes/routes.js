@@ -28,15 +28,15 @@ router.put('/update-transaction/:transaction_id', authMiddleware, updateTransact
 // Khata
 router.get('/get-all-khatas', authMiddleware, getAllKhatas);
 router.post('/add-khata', authMiddleware, addKhata);
-router.get('/get-specific-khata-transaction/:transaction_id', authMiddleware, getSpecificKhata);
-router.delete('/delete-khata-transaction/:transaction_id', authMiddleware, deleteKhata);
-router.put('/update-khata-transaction/:transaction_id', authMiddleware, updateKhata);
+router.get('/get-specific-khata/:khata_id', authMiddleware, getSpecificKhata);
+router.delete('/delete-khata/:khata_id', authMiddleware, deleteKhata);
+router.put('/update-khata/:khata_id', authMiddleware, updateKhata);
 
 // Khata Transactions
 router.get('/get-khata-transactions/:khata_id', authMiddleware, getKhataTransactions);
 router.post('/add-khata-transaction', authMiddleware, addKhataTransaction);
-router.get('/get-specific-khata-transaction/:khata_id', authMiddleware, getSpecificKhataTransaction);
-router.delete('/delete-khata-transaction/:khata_id', authMiddleware, deleteKhataTransaction);
-router.put('/update-khata-transaction/:khata_id', authMiddleware, updateKhataTransaction);
+router.get('/get-specific-khata-transaction/:transaction_id', authMiddleware, getSpecificKhataTransaction);
+router.delete('/delete-khata-transaction/:transaction_id', authMiddleware, deleteKhataTransaction);
+router.put('/update-khata-transaction/:transaction_id', authMiddleware, updateKhataTransaction);
 
 module.exports = router;
